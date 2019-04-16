@@ -1,7 +1,8 @@
-package pro.smjx.coderswag
+package pro.smjx.coderswag.controller
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import pro.smjx.coderswag.R
 
 class MainActivity : AppCompatActivity() {
 
