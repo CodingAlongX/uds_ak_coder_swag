@@ -2,6 +2,7 @@ package pro.smjx.coderswag.controller
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import pro.smjx.coderswag.R
 import pro.smjx.coderswag.adapters.CategoryAdapter
@@ -21,5 +22,11 @@ class MainActivity : AppCompatActivity() {
         )
 
         categoryListView.adapter = adapter
+
+        categoryListView.setOnItemClickListener { adapterView, view, position, id ->
+            val category = DataService.categories[position]
+
+            Toast.makeText(this, "You clicked on the ${category.title} cell", Toast.LENGTH_SHORT).show()
+        }
     }
 }
