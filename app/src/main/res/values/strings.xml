@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CoderSwag</string>
     <string name="categories">Categories</string>
+    <string name="products">Products</string>
+    <string name="beanie">Beanie</string>
+    <string name="_18">$18</string>
 </resources>

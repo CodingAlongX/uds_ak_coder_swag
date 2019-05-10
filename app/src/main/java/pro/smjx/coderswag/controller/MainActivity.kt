@@ -1,15 +1,15 @@
 package pro.smjx.coderswag.controller
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import pro.smjx.coderswag.R
-import pro.smjx.coderswag.adapters.CategoryAdapter
 import pro.smjx.coderswag.adapters.CategoryRecyclerAdapter
+import pro.smjx.coderswag.model.Category
 import pro.smjx.coderswag.services.DataService
+import pro.smjx.coderswag.utilities.EXTRA_CATEGORY
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,13 +22,18 @@ class MainActivity : AppCompatActivity() {
         adapter = CategoryRecyclerAdapter(
             this,
             DataService.categories
-        )
+        ) { category: Category ->
+            val productIntent = Intent(this, ProductsActivity::class.java)
+            productIntent.putExtra(EXTRA_CATEGORY, category.title)
+            startActivity(productIntent)
+        }
 
         categoryRecyclerView.adapter = adapter
 
         val layoutManager = LinearLayoutManager(this)
         categoryRecyclerView.layoutManager = layoutManager
         categoryRecyclerView.setHasFixedSize(true)
+
 
     }
 }
